@@ -1,0 +1,6 @@
+librosa
+soundfile
+scipy
+yt-dlp
+gradio
+numpy
