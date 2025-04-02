@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR除去音声作成ツール MR REMOVED Maker</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #6c5ce7;
+      --secondary-color: #a29bfe;
+      --dark-color: #2d3436;
+      --light-color: #f9f9f9;
+      --accent-color: #ff7675;
+      --success-color: #00b894;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .instructions {
+      background-color: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .instructions h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .instructions h2 i {
+      margin-right: 10px;
+    }
+    
+    .steps {
+      list-style: none;
+    }
+    
+    .steps li {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.1rem;
+    }
+    
+    .steps li::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    
+    .iframe-container {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    .iframe-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 0;
+      color: var(--dark-color);
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .instructions {
+        padding: 20px;
+      }
+      
+      .iframe-container {
+        height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><i class="fas fa-music"></i>MR除去作成ツール MR REMOVED Maker</h1>
+      
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="instructions">
+      <h2><i class="fas fa-lightbulb"></i> 使用方法</h2>
+      <ul class="steps">
+        <li data-step="1">楽器＋ボーカルにライブ映像の音声・動画ファイルをアップロード</li>
+        <li data-step="2">楽器のみにMVなどのCD音源の音声・動画ファイルをアップロード</li>
+        <li data-step="3">抽出精度を0.3〜0.5（おすすめ）の間で任意で調整</li>
+        <li data-step="4">ファイル名を任意で設定</li>
+        <li data-step="5">「Submit」ボタンをクリックして抽出開始</li>
+      </ul>
+    </div>
+    
+    <iframe class="iframe-container" src="https://Taropoint-vocal-extraction-app.hf.space" allow="camera; microphone; geolocation; clipboard-read; clipboard-write"></iframe>
+  </div>
+  <footer>
+    <div class="container">
+      <p>© ポイ活Pay太郎 MR REMOVED Maker</p>
+    </div>
+  </footer>
+  
+  <script>
+    // アニメーションのためのシンプルなスクリプト
+    document.addEventListener('DOMContentLoaded', function() {
+      const steps = document.querySelectorAll('.steps li');
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          step.style.opacity = '1';
+        }, 300 * index);
+      });
+    });
+  </script>
+</body>
+</html>
